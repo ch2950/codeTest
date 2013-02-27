@@ -11,15 +11,22 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 
 public class tweet {
-  public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
+		System.out.println("Welcome! Please input the hashtag you want to search. (Input example:#valentine#)");
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		String sentence;
+		sentence = input.readLine().trim();
 		//input error 
-		if(args.length < 1){
+		if(sentence.length() < 3){
 			System.out.println("Error: input error. Input example:#valentine#");
 			return;
 		}
-		
+		else if (sentence.charAt(0) != '#' || sentence.charAt(sentence.length() - 1) != '#') {
+			System.out.println("Please add # to the word you want to search.");
+			return;
+		}
 		//delect "##"		
-		String querykey = args[0].substring(1, args[0].length() - 1);
+		String querykey = sentence.substring(1, sentence.length() - 1);
 
 		
 		//initiate query
