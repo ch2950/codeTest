@@ -13,13 +13,15 @@ import java.util.Collections;
 
 
 class arraySort {
-  public static void main(String[] args){
+	public static void main(String[] args){
 		int array[] = {1,1,1,1,46,46,35,57,1,68,23,68,68,68,136,35};
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		HashMap<Integer, Integer> outputMap = new HashMap<Integer, Integer>();
+		System.out.println("The numbers in the array are:");		
 		int i;
 		for(i = 0; i < array.length; i++) {
 			int number = array[i];
+			System.out.print(array[i] + "  ");
 			Integer freq = map.get(number);
 			if (freq == null) {
 				map.put(number, 1);
@@ -29,6 +31,7 @@ class arraySort {
 				outputMap.put(number, freq + 1);
 			}
 		}
+		System.out.println();
 		sortByValue(outputMap);
 	
 	}
